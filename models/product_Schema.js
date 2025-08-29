@@ -1,37 +1,30 @@
-const mongoos = require('mongoose');
 
+import mongoose from 'mongoose';
 
-
-const Product_Schema = mongoos.Schema({
-    
-    name : {
+const Product_Schema = new mongoose.Schema({
+    name: {
         type: String,
-        require: [true,'please enter the name , without name product donot exist']
-        
+        required: [true, 'please enter the name, without name product does not exist']
     },
-    Quantity : {
-           type : Number,
-           require: [true,'please enter the quantity , without quantity product donot exist'],
-           default:0
-
-
-    },
-    price:{
+    Quantity: {
         type: Number,
-        require: [true,'please enter the price , without price product donot exist'],
-        default:0
-
-    } ,
-    image:{
-          type: String,
-          require : true,
-          default: ''
+        required: [true, 'please enter the quantity, without quantity product does not exist'],
+        default: 0
+    },
+    price: {
+        type: Number,
+        required: [true, 'please enter the price, without price product does not exist'],
+        default: 0
+    },
+    image: {
+        type: String,
+        required: false,
+        default: ''
     }
-},
-    {
+}, {
+    timestamps: true
+});
 
-        Timestamp: true
+const Product = mongoose.model('Product', Product_Schema);
 
-    }
-);
-const Product = mongoos.model('Product', Product_Schema);
+export default Product;
