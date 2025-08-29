@@ -9,7 +9,6 @@ const Product_Schema = mongoos.Schema({
         require: [true,'please enter the name , without name product donot exist']
         
     },
-
     Quantity : {
            type : Number,
            require: [true,'please enter the quantity , without quantity product donot exist'],
@@ -17,9 +16,6 @@ const Product_Schema = mongoos.Schema({
 
 
     },
-
-
-
     price:{
         type: Number,
         require: [true,'please enter the price , without price product donot exist'],
@@ -38,6 +34,4 @@ const Product_Schema = mongoos.Schema({
 
     }
 );
-
-
 const Product = mongoos.model('Product', Product_Schema);
